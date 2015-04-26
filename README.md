@@ -1,2 +1,2 @@
 # python
-A small collection of various python scripts
+A small collection of various python scripts.
