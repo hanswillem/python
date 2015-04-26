@@ -2,8 +2,8 @@ import math
 
 class Vector(object):
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
+        self.x = float(x)
+        self.y = float(y)
 
     def __str__(self):
         return 'Vector object'
@@ -47,3 +47,10 @@ class Vector(object):
     #returns the angle in radions
     def heading(self):
         return math.atan(self.y / self.x)
+
+
+v1 = Vector(3, 4)
+print v1.heading()
+v1.norm()
+print v1.mag()
+print v1.heading()
