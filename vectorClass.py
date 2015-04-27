@@ -47,10 +47,3 @@ class Vector(object):
     #returns the angle in radions
     def heading(self):
         return math.atan(self.y / self.x)
-
-
-v1 = Vector(3, 4)
-print v1.heading()
-v1.norm()
-print v1.mag()
-print v1.heading()
