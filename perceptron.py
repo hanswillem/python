@@ -8,7 +8,7 @@ class Perceptron(object):
     
     def sum(self, x):
         for i in range(self.numX):
-            self.sumRes += x[i] * self.w[i] * self.c
+            self.sumRes += x[i] * self.w[i]
         if self.sumRes > 0:
             return 1
         else:
