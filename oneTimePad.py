@@ -17,9 +17,10 @@ def decrypt(c, k):
         m.append(chr((c[i] - k[i]) % 123))
     return ''.join(m)
 
+c = encrypt(m, k)
+d = decrypt(c, k)
 
 print 'M: '+ m
 print 'K: ' + str(k)
-c = encrypt(m, k)
 print 'C: ' + str(c)
-print 'D: ' + decrypt(c, k)
+print 'D: ' + d
