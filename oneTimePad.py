@@ -18,7 +18,7 @@ def decrypt(c, k):
 c = encrypt(m, k)
 d = decrypt(c, k)
 
-print 'M: '+ m
+print 'M: ' + m
 print 'K: ' + str(k)
 print 'C: ' + str(c)
 print 'D: ' + d
