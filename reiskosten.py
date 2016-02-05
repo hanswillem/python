@@ -39,8 +39,9 @@ for row in f:
             if fromStop in stops and toStop in stops:
                 total += cost
                 validTransits.append(dayOfTheWeek + ' ' + dateString +': ' + fromStop + ' - ' + toStop + ': ' + 'EUR ' + costString)
-
-        if currentTotal == total:
+            else:
+                invalidTransits.append(dayOfTheWeek + ' ' + dateString +': ' + fromStop + ' - ' + toStop + ': ' + 'EUR ' + costString)
+        else:
             invalidTransits.append(dayOfTheWeek + ' ' + dateString +': ' + fromStop + ' - ' + toStop + ': ' + 'EUR ' + costString)
 
     count += 1
