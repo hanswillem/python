@@ -1,39 +1,34 @@
 #simulation of the Three Doors Problem
-import random
-
 #n = the number of times the game should be simulated
 #s = a boolean, if set to True, the player switches doors, if set to False the player sticks to the first picked door
+
+import random
+import matplotlib.pyplot as plt 
+
 def threeDoors(n, s):
     print 'calculating...'
-    wins = 0
-    for i in range(n):
-        #make an array with three doors
-        l = ['door A', 'door B', 'door C']
-        #pick a winning door and assign a random door to the player
-        winningDoor = random.choice(l)
-        pickedDoor01 = random.choice(l)
-        #remove winning door and (if they are not the same) remove the picked door from the array
-        l.remove(winningDoor)
-        if pickedDoor01 in l:
-            l.remove(pickedDoor01)
-        #the door that should be openend by the host is the door that is left in the array
-        #or, if there are more than two left, a random one of the two remaining doors in the array
-        openedDoor = random.choice(l)
-        #fill the array again
-        l = ['door A', 'door B', 'door C']
-        #remove the picked door and the opened door
-        l.remove(pickedDoor01)
-        l.remove(openedDoor)
-        #pick the door to which the player switches
-        pickedDoor02 = l[0]
-        #see if the player wins the game, and if so count the times the player wins
-        if s:
-            if pickedDoor02 == winningDoor:
-                wins += 1.0
-        else:
-            if pickedDoor01 == winningDoor:
-                wins += 1.0
-    #return the percentage
-    print 'percentage ' + str((wins / n) * 100)
+    l = ['door A', 'door B', 'door C']
+    percentage = []
+    wins = 0.0
 
-threeDoors(100000, False)
+    for i in range(1, n + 1):
+        winningDoor = random.choice(l)
+        playerPick01 = random.choice(l)
+        openedDoor = random.choice([j for j in l if j != winningDoor or j != playerPick01])
+
+        if s:
+            playerPick02 = [j for j in l if j != playerPick01 or j != openedDoor][0]
+            if playerPick02 == winningDoor:
+                wins += 1
+        else:
+            if playerPick01 == winningDoor:
+                wins += 1
+
+        percentage.append((wins / i) * 100)
+
+    print 'percentage of wins: ' + str((wins / n) * 100)
+    plt.ylim(0, 100)
+    plt.plot(percentage)
+    plt.show()
+
+threeDoors(10000, True)
