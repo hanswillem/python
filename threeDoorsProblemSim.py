@@ -14,10 +14,10 @@ def threeDoors(n, s):
     for i in range(1, n + 1):
         winningDoor = random.choice(l)
         playerPick01 = random.choice(l)
-        openedDoor = random.choice([j for j in l if j != winningDoor or j != playerPick01])
+        openedDoor = random.choice([j for j in l if j != winningDoor and j != playerPick01])
 
         if s:
-            playerPick02 = [j for j in l if j != playerPick01 or j != openedDoor][0]
+            playerPick02 = [j for j in l if j != playerPick01 and j != openedDoor][0]
             if playerPick02 == winningDoor:
                 wins += 1
         else:
