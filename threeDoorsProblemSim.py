@@ -6,7 +6,6 @@ import random
 import matplotlib.pyplot as plt 
 
 def threeDoors(n, s):
-    print 'calculating...'
     l = ['door A', 'door B', 'door C']
     percentage = []
     wins = 0.0
@@ -26,9 +25,19 @@ def threeDoors(n, s):
 
         percentage.append((wins / i) * 100)
 
-    print 'percentage of wins: ' + str((wins / n) * 100)
-    plt.ylim(0, 100)
-    plt.plot(percentage)
-    plt.show()
+    return percentage
 
-threeDoors(10000, True)
+
+switched = threeDoors(10000, True)
+notSwitched = threeDoors(10000, False)
+
+
+plt.plot(switched, label='player switched')
+plt.plot(notSwitched, label='player did not switch')
+plt.legend()
+plt.ylim(0, 100)
+plt.grid(True)
+plt.title('Three Door Problem')
+plt.ylabel('percentage games won by player')
+plt.xlabel('games played')
+plt.show()
