@@ -18,7 +18,7 @@ class randomWalk(object):
 
         plt.title('Random Walk')
         plt.xlabel('number of steps')
-        plt.ylabel('distance froms start position')
+        plt.ylabel('distance from start position')
         plt.ylim(0, 100)
         plt.plot(range(numSteps), self.l)
         plt.show()
