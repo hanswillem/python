@@ -9,7 +9,7 @@
 # 3. Copy the file to one of the PATH folders. To find PATH, type $PATH in terminal (returns multiple folders separated by ':').
 #
 # In terminal:
-# mframes <path/to/folder/with/image/sequence/>
+# $ mframes <path/to/folder/with/image/sequence/>
 
 
 import sys
