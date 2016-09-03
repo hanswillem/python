@@ -4,7 +4,7 @@
 
 # command line application install instructions Mac OSX:
 #
-# 1. Put a shebang at the top of the script e.g. #!/usr/local/bin/python. type 'which python' in terminal if you don't know what the shebang should be.
+# 1. Put the correct shebang at the top of the script e.g. #!/usr/local/bin/python. type 'which python' in terminal if you don't know what the shebang should be.
 # 2. Save the file without '.py' extension, open terminal and type 'chmod u+x <filename>', to make the file executable.
 # 3. Copy the file to one of the PATH folders. To find PATH, type $PATH in terminal (returns multiple folders separated by ':').
 #
@@ -29,7 +29,7 @@ def main():
 
     # get the path from the user
     if len(sys.argv) < 2:
-        print 'no path!'
+        print 'no file path! --> type mframes < path/to/folder/with/image/sequences/ >'
         sys.exit(0)
     else:
         p = sys.argv[1]
