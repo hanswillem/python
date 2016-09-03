@@ -17,7 +17,7 @@ import re
 
 def main():
 
-    # get the number in a filename
+    # get the number in a filename, if there are multiple numbers, only the last number is returned
     def getNumber(f):
         return re.findall('\d+', os.path.splitext(f)[0])[-1]
 
@@ -34,15 +34,20 @@ def main():
     else:
         p = sys.argv[1]
 
+
+    # get all files except hidden filees
     fileNames = [f for f in os.listdir(p) if f[0] != '.']
-    
+
+
+    # exit the app if there are files without numbers in their names
     try:
         checkForNumbers = [getNumber(f) for f in fileNames]
     except:
         print 'please remove files without numbers in the filename!'
         sys.exit(0)
 
-    # get the different image sequences
+
+    # gather the different sequences and extensions
     sequences = []
     extensions = []
     for f in fileNames:
@@ -54,7 +59,7 @@ def main():
             extensions.append(ext)
 
 
-    # put the filenumbers in differen lists
+    # put the filenumbers of seperate sequences in seperate lists
     sequencesFiles = []
     for i in range(len(sequences)):
         newSeq = [int(getNumber(f)) for f in fileNames if f[: -1 * (4 + len(getNumber(f)))] == sequences[i]]
@@ -74,7 +79,7 @@ def main():
         index += 1
 
     if len(missingFrames) == 0:
-        print 'no missing frames!'
+        print 'no frames missing!'
 
 
 if __name__ == '__main__':
