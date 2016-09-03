@@ -8,7 +8,7 @@
 # 2. Save the file without '.py' extension, open terminal and type 'chmod u+x <filename>', to make the file executable.
 # 3. Copy the file to one of the PATH folders. To find PATH, type $PATH in terminal (returns multiple folders separated by ':').
 #
-# In terminal:
+# How to use: open terminal, and type:
 # $ mframes <path/to/folder/with/image/sequence/>
 
 import sys
