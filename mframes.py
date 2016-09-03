@@ -11,7 +11,6 @@
 # In terminal:
 # $ mframes <path/to/folder/with/image/sequence/>
 
-
 import sys
 import os
 import re
