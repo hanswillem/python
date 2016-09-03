@@ -22,10 +22,10 @@ def main():
         return re.findall('\d+', os.path.splitext(f)[0])[-1]
 
 
-
     # get the extension of a filename
     def getExtension(f):
         return os.path.splitext(f)[1]
+
 
     # get the path from the user
     if len(sys.argv) < 2:
@@ -35,6 +35,12 @@ def main():
         p = sys.argv[1]
 
     fileNames = [f for f in os.listdir(p) if f[0] != '.']
+    
+    try:
+        checkForNumbers = [getNumber(f) for f in fileNames]
+    except:
+        print 'please remove files without numbers in the filename!'
+        sys.exit(0)
 
     # get the different image sequences
     sequences = []
@@ -53,6 +59,7 @@ def main():
     for i in range(len(sequences)):
         newSeq = [int(getNumber(f)) for f in fileNames if f[: -1 * (4 + len(getNumber(f)))] == sequences[i]]
         sequencesFiles.append(newSeq)
+
 
     # get missing frames per sequence
     missingFrames = []
