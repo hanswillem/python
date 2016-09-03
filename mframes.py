@@ -19,7 +19,7 @@ def main():
         p = sys.argv[1]
 
         try:
-            #get numbers from filenames and excluding hidden files
+            # get numbers from filenames and excluding hidden files
             frames = [int(re.findall('\d+', os.path.splitext(f)[0])[-1]) for f in os.listdir(p) if f[0] != '.']
             missingFrames = []
 
