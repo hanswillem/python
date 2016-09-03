@@ -41,3 +41,7 @@ def main():
 
         if len(missingFrames) == 0:
             print 'no missing frames!'
+
+
+if __name__ == '__main__':
+    main()
