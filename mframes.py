@@ -33,9 +33,14 @@ def main():
         sys.exit(0)
     else:
         p = sys.argv[1]
-        if not os.path.exists(p):
-            print ">> path < " + p + " > doesn't exist! --> type mframes < path/to/folder/with/image/sequences/ >"
+        if p == '-h' or p == '--help':
+            print 'mframes returns the missing frames from a folder with one or more image sequences'
+            print '>> type mframes < path/to/folder/with/image/sequences/ >'
             sys.exit(0)
+        else:
+            if not os.path.exists(p):
+                print ">> path < " + p + " > doesn't exist! --> type mframes < path/to/folder/with/image/sequences/ >"
+                sys.exit(0)
 
 
     # get all files except hidden filees
