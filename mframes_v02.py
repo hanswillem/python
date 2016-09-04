@@ -29,12 +29,12 @@ def main():
 
     # get the path from the user
     if len(sys.argv) < 2:
-        print 'no file path! --> type mframes < path/to/folder/with/image/sequences/ >'
+        print '>> no file path! --> type mframes < path/to/folder/with/image/sequences/ >'
         sys.exit(0)
     else:
         p = sys.argv[1]
         if not os.path.exists(p):
-            print "path < " + p + " > doesn't exist! --> type mframes < path/to/folder/with/image/sequences/ >"
+            print ">> path < " + p + " > doesn't exist! --> type mframes < path/to/folder/with/image/sequences/ >"
             sys.exit(0)
 
 
@@ -46,7 +46,7 @@ def main():
     try:
         checkForNumbers = [getNumber(f) for f in fileNames]
     except:
-        print 'please remove files without numbers in the filename!'
+        print '>> please remove files without numbers in the filename!'
         sys.exit(0)
 
 
@@ -60,6 +60,9 @@ def main():
         if currentSequence not in sequences:
             sequences.append(currentSequence)
             extensions.append(ext)
+
+
+    print 'found: ' + str(sequences)
 
 
     # put the filenumbers of seperate sequences in seperate lists
@@ -77,12 +80,12 @@ def main():
         end = seq[-1]
         for i in range(start, end + 1):
             if i not in seq:
-                print str(sequences[index]) + str(i) + str(extensions[index]) + ' is missing'
+                print '    ' + str(sequences[index]) + str(i) + str(extensions[index]) + ' is missing'
                 missingFrames.append(i)
         index += 1
 
     if len(missingFrames) == 0:
-        print 'no frames missing!'
+        print '>> no frames missing!'
 
 
 if __name__ == '__main__':
