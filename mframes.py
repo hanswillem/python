@@ -1,4 +1,4 @@
-#!/Users/hanswillemgijzel/anaconda/bin/python
+#!/usr/bin/python
 
 """returns the missing frames from a folder with one or more image sequences"""
 
@@ -43,8 +43,8 @@ def main():
                 sys.exit(0)
 
 
-    # get all files except hidden filees
-    fileNames = [f for f in os.listdir(p) if f[0] != '.']
+    # gather all files except folders and hidden files
+    fileNames = [f for f in os.listdir(p) if f[0] != '.' and os.path.isdir(f) == False]
 
 
     # exit the app if there are files without numbers in their names
