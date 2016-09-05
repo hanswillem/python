@@ -66,8 +66,12 @@ def main():
             sequences.append(currentSequence)
             extensions.append(ext)
 
-
-    print 'found: ' + str(sequences)
+    # print found sequences, if none were found: exit
+    if len(sequences) == 0:
+        print '>> no image sequences found!'
+        exit(0)
+    else:
+        print 'found: ' + str(sequences)
 
 
     # put the filenumbers of seperate sequences in seperate lists
