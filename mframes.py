@@ -43,13 +43,13 @@ def main():
                 sys.exit(0)
 
 
-    # gather all files except folders and hidden files
-    fileNames = [f for f in os.listdir(p) if f[0] != '.' and os.path.isdir(f) == False]
+    # gather all files except hidden files (folders are excluded by the isfile function)
+    allFiles = [f for f in os.listdir(p) if os.path.isfile(os.path.join(p, f)) and f[0] != '.']
 
 
     # exit the app if there are files without numbers in their names
     try:
-        checkForNumbers = [getNumber(f) for f in fileNames]
+        checkForNumbers = [getNumber(f) for f in allFiles]
     except:
         print '>> please remove files without numbers in the filename!'
         sys.exit(0)
@@ -58,7 +58,7 @@ def main():
     # gather the different sequences and extensions
     sequences = []
     extensions = []
-    for f in fileNames:
+    for f in allFiles:
         fnumber = getNumber(f)
         ext = getExtension(f)
         currentSequence = f[: -1 * (4 + len(fnumber))]
@@ -73,7 +73,7 @@ def main():
     # put the filenumbers of seperate sequences in seperate lists
     sequencesFiles = []
     for i in range(len(sequences)):
-        newSeq = [int(getNumber(f)) for f in fileNames if f[: -1 * (4 + len(getNumber(f)))] == sequences[i]]
+        newSeq = [int(getNumber(f)) for f in allFiles if f[: -1 * (4 + len(getNumber(f)))] == sequences[i]]
         sequencesFiles.append(newSeq)
 
 
