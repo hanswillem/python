@@ -66,6 +66,7 @@ def main():
             sequences.append(currentSequence)
             extensions.append(ext)
 
+
     # print found sequences, if none were found: exit
     if len(sequences) == 0:
         print '>> no image sequences found!'
