@@ -6,6 +6,8 @@
 # It assumes that the framerate of image sequence should be interpreted as 60 fps
 # It outputs a gif at 30 fps.
 #
+# Dependencies: ffmpeg (https://ffmpeg.org/)
+#
 # command line application install instructions Mac OSX:
 #
 # 1. Put the correct shebang at the top of the script e.g. #!/usr/local/bin/python. type 'which python' in terminal if you don't know what the shebang should be.
