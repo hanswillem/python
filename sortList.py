@@ -1,11 +1,10 @@
 def sortList(l):
-    ls = []
+    l_sorted = []
     while len(l) > 0:
-        record = 0
+        record = l[0]
         for i in l:
-            if i > record:
+            if i < record:
                 record = i
-        ls.append(record)
+        l_sorted.append(record)
         l.pop(l.index(record))
-
-    return ls
+    return l_sorted
