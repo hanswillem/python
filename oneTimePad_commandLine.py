@@ -1,5 +1,20 @@
 #!/PUT/THE/RIGHT/SHEBANG/HERE!
 
+# One Time Pad Command Line Application
+# Can be used to encrypt and decrypt txt files
+#
+# command line application install instructions Mac OSX:
+#
+# 1. Put the correct shebang at the top of the script e.g. #!/usr/local/bin/python. type 'which python' in terminal if you don't know what the shebang should be.
+# 2. Save the file without '.py' extension, open terminal and type 'chmod u+x <filename>', to make the file executable.
+# 3. Copy the file to one of the PATH folders. To find PATH, type 'echo $PATH' in terminal (returns multiple folders separated by ':').
+#
+# Encrypt txt file:
+# $ otp -e <path/to/file.txt>
+#
+# Decrypt txt file (key.txt should be in same folder as txt file):
+# $ otp -d <path/to/file.txt>
+
 import sys
 import os
 import random
