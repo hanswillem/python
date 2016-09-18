@@ -88,7 +88,7 @@ if sys.argv[1] == '-d':
         print 'key.txt not found in folder!'
         sys.exit(0)
 
-    messageFile = cypherFile
+    messageFile = cypherFile[:cypherFile.index('_cypher.txt')] + '.txt'
 
     c = []
     k = []
@@ -115,4 +115,3 @@ if sys.argv[1] == '-d':
     f = open(messageFile, 'w')
     f.write(d)
     f.close()
-
