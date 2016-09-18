@@ -42,7 +42,7 @@ if sys.argv[1] == '-e':
 
     messageFile = sys.argv[2]
     keyFile = os.path.join(pth, 'key.txt')
-    cypherFile = messageFile
+    cypherFile = os.path.splitext(messageFile)[0] + '_cypher.txt'
 
     # read message
     f = open(messageFile, 'r')
@@ -115,3 +115,4 @@ if sys.argv[1] == '-d':
     f = open(messageFile, 'w')
     f.write(d)
     f.close()
+
