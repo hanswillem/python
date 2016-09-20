@@ -1,4 +1,4 @@
-# binary search (expects a sorted list)
+# binary search (k = search keyword, l = sorted list)
 def search(k, l):
     l_search = msort(l)
     while True:
