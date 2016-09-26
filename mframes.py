@@ -42,9 +42,10 @@ def main():
                 print ">> path < " + p + " > doesn't exist! --> type mframes < path/to/folder/with/image/sequences/ >"
                 sys.exit(0)
 
-
-    # gather all files except hidden files (folders are excluded by the isfile function)
+                
+    # gather (and sort) all files except hidden files (folders are excluded by the isfile function)
     allFiles = [f for f in os.listdir(p) if os.path.isfile(os.path.join(p, f)) and f[0] != '.']
+    allFiles.sort()
 
 
     # exit the app if there are files without numbers in their names
