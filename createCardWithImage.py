@@ -8,8 +8,9 @@ Description-US:Creates a card with the selected material as texture
 """
 
 
-import c4d,os 
+import c4d
 from c4d import gui, bitmaps 
+import os
 
 
 def getImageSize(m): 
