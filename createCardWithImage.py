@@ -17,13 +17,14 @@ def getImageSize(mat):
     pathToFile = mat[c4d.MATERIAL_COLOR_SHADER][c4d.BITMAPSHADER_FILENAME]
     bmp = bitmaps.BaseBitmap(pathToFile) 
     bmp.InitWith(pathToFile)   
-    x, y = bmp.GetSize() 
-    return [x, y]
+    w, h = bmp.GetSize() 
+    return [w, h]
 
 
 def resizeCard(card, mat):
-    card[c4d.PRIM_PLANE_WIDTH] = getImageSize(mat)[0]
-    card[c4d.PRIM_PLANE_HEIGHT] = getImageSize(mat)[1]
+    w, h = getImageSize(mat)
+    card[c4d.PRIM_PLANE_WIDTH] = w
+    card[c4d.PRIM_PLANE_HEIGHT] = h
 
 
 def createCard(mat):
