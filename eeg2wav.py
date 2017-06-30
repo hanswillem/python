@@ -33,7 +33,7 @@ def main():
 
         for i in range(len(a)):
             a[i] /= mx
-            a[i] *= 32767  #the maximum amplitude for a 16 bit wave file (2**16 = 65536, so a range from -32767 to +32767)
+            a[i] *= 32767  #the maximum amplitude for a 16 bit wave file (2**16 = 65536, so a range from -32768 to +32767)
             a[i] *= -1 #invert it
             a[i] = int(a[i])
 
